@@ -7,8 +7,9 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:5000",
-        secure: false,
+        // target: "http://localhost:5000",
+        target: "https://ticketing-a.onrender.com",
+        secure: true,
       },
     },
   },
