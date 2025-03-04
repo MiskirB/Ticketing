@@ -19,7 +19,8 @@ connectDB();
 
 // Middleware
 app.use(express.json()); // Parse incoming JSON requests
-app.use(cors()); // Enable Cross-Origin Resource Sharing
+// app.use(cors()); // Enable Cross-Origin Resource Sharing
+app.use(cors({ origin: "https://ticketing-kappa-orcin.vercel.app/" }));
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
