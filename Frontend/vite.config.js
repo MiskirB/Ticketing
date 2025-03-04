@@ -7,8 +7,8 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        // target: "http://localhost:5000",
-        target: "https://ticketing-jlk8.onrender.com",
+        target: "http://localhost:5000",
+        // target: "https://ticketing-jlk8.onrender.com",
         secure: true,
       },
     },
