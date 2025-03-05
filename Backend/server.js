@@ -20,7 +20,26 @@ connectDB();
 // Middleware
 app.use(express.json()); // Parse incoming JSON requests
 // app.use(cors()); // Enable Cross-Origin Resource Sharing
-app.use(cors({ origin: "https://ticketing-kappa-orcin.vercel.app/" }));
+const cors = require("cors");
+
+// Replace this with the actual origin of your frontend app
+const allowedOrigins = ["https://ticketing-kappa-orcin.vercel.app"];
+
+const options = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
+
+// Apply CORS middleware
+app.use(cors(options));
+
+// Your routes and other code here...
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
