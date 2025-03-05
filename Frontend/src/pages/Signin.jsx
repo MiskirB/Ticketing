@@ -15,10 +15,13 @@ function SignIn() {
     setLoading(true); // Set loading to true when the form is submitted
 
     try {
-      const response = await axios.post("/api/auth/signin", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://ticketing-jlk8.onrender.com/api/auth/signin",
+        {
+          email,
+          password,
+        }
+      );
 
       // Assuming the response contains a token and user role
       const { token, role } = response.data;

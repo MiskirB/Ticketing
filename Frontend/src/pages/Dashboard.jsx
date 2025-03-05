@@ -14,11 +14,14 @@ function Dashboard() {
     const fetchTickets = async () => {
       try {
         const token = localStorage.getItem("authToken");
-        const response = await axios.get("/api/tickets", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await axios.get(
+          "https://ticketing-jlk8.onrender.com/api/tickets",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         setTickets(response.data);
       } catch (err) {
         setError("Failed to fetch tickets. Please try again.");
@@ -34,7 +37,7 @@ function Dashboard() {
     try {
       const token = localStorage.getItem("authToken");
       const response = await axios.post(
-        "/api/tickets",
+        "https://ticketing-jlk8.onrender.com/api/tickets",
         { title: newTicket.title, description: newTicket.description },
         {
           headers: {
