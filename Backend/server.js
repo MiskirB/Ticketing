@@ -20,7 +20,6 @@ connectDB();
 // Middleware
 app.use(express.json()); // Parse incoming JSON requests
 // app.use(cors()); // Enable Cross-Origin Resource Sharing
-const cors = require("cors");
 
 // Replace this with the actual origin of your frontend app
 const allowedOrigins = ["https://ticketing-kappa-orcin.vercel.app"];
